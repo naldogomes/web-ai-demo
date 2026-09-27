@@ -54,7 +54,13 @@ src/
 │   ├── chat/                 # Conversation types and operations
 │   └── storage/              # localStorage-backed store (conversations and language)
 └── types/chrome-ai.d.ts      # Type declarations for Chrome's AI APIs
+
+docs/
+├── architecture.drawio       # Architecture diagram (editable in draw.io)
+└── architecture.png          # Exported image of the diagram
 ```
+
+![Architecture](docs/architecture.png)
 
 ### Conversation context
 
