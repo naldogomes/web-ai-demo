@@ -22,11 +22,26 @@ npm run dev          # http://localhost:3000
 npm run build        # production build (also type-checks)
 npm run lint         # ESLint (next core-web-vitals + typescript)
 npx tsc --noEmit     # type check only
+npm run test:e2e     # Playwright end-to-end tests (starts the dev server itself)
 ```
 
-There is no test suite. Before finishing a change, `npm run lint` and `npx tsc --noEmit`
-must pass. Behavior involving the AI APIs can only be checked in Chrome 138+ desktop
-with the models downloaded; say so when a change could not be verified in the browser.
+Before finishing a change, `npm run lint`, `npx tsc --noEmit` and `npm run test:e2e` must
+pass. The e2e tests run in Playwright's Chromium with a fake Prompt API
+(`tests/support/chromeAiMock.ts`), so they cover the UI flows, not the real model.
+Behavior involving the real AI APIs can only be checked in Chrome 138+ desktop with the
+models downloaded; say so when a change could not be verified there.
+
+## Tests
+
+- Specs live in `tests/*.spec.ts`; config in `playwright.config.ts` (English locale,
+  `baseURL` is the dev server).
+- Every test installs the mock with `page.addInitScript(installChromeAIMock)` before
+  `page.goto`. The mock runs inside the page, so it must stay self-contained (no imports
+  or outer variables). Extend it when the app starts using another AI API method.
+- Each test gets a fresh browser context (empty `localStorage`); don't depend on state
+  from other tests.
+- Locate elements with `getByRole` and accessible names from `en.ts`; assert on
+  `mockedAnswer(question)` instead of hard-coding the fake answer.
 
 ## Architecture
 

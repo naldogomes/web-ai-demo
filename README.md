@@ -19,6 +19,7 @@ npm install
 npm run dev      # http://localhost:3000
 npm run build    # production build
 npm run lint
+npm run test:e2e # end-to-end tests (Playwright)
 ```
 
 Requires Google Chrome 138+ for desktop. If anything is missing (flags, models not
@@ -58,6 +59,10 @@ src/
 docs/
 ├── architecture.drawio       # Architecture diagram (editable in draw.io)
 └── architecture.png          # Exported image of the diagram
+
+tests/                        # Playwright end-to-end tests
+├── chat.spec.ts              # New chat, question and answer, delete
+└── support/chromeAiMock.ts   # Fake Prompt API, so tests run without Gemini Nano
 ```
 
 ![Architecture](docs/architecture.png)
@@ -68,6 +73,15 @@ The model keeps the context within its session. There is one active session at a
 (the open conversation's). When switching conversations or reloading the page, the
 session is rebuilt from the saved history. Attachments are not saved: after a reload,
 the model only sees the text of previous messages.
+
+### Tests
+
+End-to-end tests use Playwright's Chromium, which can't run Gemini Nano. Each test
+replaces the Prompt API with the fake in `tests/support/chromeAiMock.ts` (answers are
+fixed and streamed word by word), so the tests don't need Chrome, downloaded models or
+specific hardware. `npm run test:e2e` starts the dev server by itself (or reuses one
+already running on port 3000). Install the browser once with
+`npx playwright install --with-deps chromium`.
 
 ### Interface strings
 
