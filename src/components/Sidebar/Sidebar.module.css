@@ -1,0 +1,103 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    height: 100dvh;
+    padding: 28px 20px 20px;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.18), transparent 55%),
+        var(--sidebar-bg);
+    color: var(--sidebar-text);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brandMark {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.45);
+}
+
+.title {
+    font-size: 1.25em;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+
+.subtitle {
+    margin-top: 2px;
+    font-size: 0.8em;
+    color: var(--sidebar-muted);
+    line-height: 1.4;
+}
+
+.newChatButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.92em;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+    transition: background 0.2s;
+}
+
+.newChatButton:hover {
+    background: var(--primary-hover);
+}
+
+.plus {
+    font-size: 0.95em;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: auto;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8em;
+    color: var(--sidebar-muted);
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.18);
+}
+
+@media (max-width: 860px) {
+    .sidebar {
+        height: auto;
+        gap: 16px;
+        padding: 20px 16px;
+    }
+}

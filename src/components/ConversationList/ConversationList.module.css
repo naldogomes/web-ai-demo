@@ -1,0 +1,109 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+}
+
+.heading {
+    padding: 0 4px;
+    font-size: 0.72em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sidebar-muted);
+}
+
+.empty {
+    padding: 0 4px;
+    font-size: 0.85em;
+    color: var(--sidebar-muted);
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+    margin-right: -8px;
+    padding-right: 8px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    transition: background 0.15s;
+}
+
+.item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.active,
+.active:hover {
+    background: var(--sidebar-surface);
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.selectButton {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    color: var(--sidebar-text);
+    font-size: 0.88em;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.active .selectButton {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.deleteButton {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 4px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--sidebar-muted);
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.15s, background 0.15s, color 0.15s;
+}
+
+.item:hover .deleteButton,
+.active .deleteButton,
+.deleteButton:focus-visible {
+    opacity: 1;
+}
+
+.deleteButton:hover {
+    background: rgba(225, 29, 72, 0.18);
+    color: #fda4af;
+}
+
+/* Touch screens have no hover: keep the delete button visible */
+@media (hover: none) {
+    .deleteButton {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 860px) {
+    .list {
+        max-height: 180px;
+    }
+}

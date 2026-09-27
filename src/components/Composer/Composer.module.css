@@ -1,0 +1,183 @@
+.composer {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.box {
+    position: relative;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(19, 33, 61, 0.08);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.box:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), 0 12px 32px rgba(19, 33, 61, 0.08);
+}
+
+.dragging {
+    border-style: dashed;
+    border-color: var(--primary);
+}
+
+.dropOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    background: rgba(232, 239, 255, 0.92);
+    border-radius: inherit;
+    color: var(--primary);
+    font-weight: 700;
+    pointer-events: none;
+}
+
+/* ---------- Attachment preview ---------- */
+
+.attachment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 10px 0;
+    padding: 6px 8px;
+    background: var(--page-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: fit-content;
+    max-width: calc(100% - 20px);
+}
+
+.thumbnail {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.fileIcon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-soft);
+    border-radius: 8px;
+}
+
+.fileName {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.removeButton {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: var(--text-muted);
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.removeButton:hover {
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+/* ---------- Input ---------- */
+
+.inputRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    padding: 8px;
+}
+
+.attachButton {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.attachButton:hover:not(:disabled) {
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+.attachButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.textarea {
+    flex: 1;
+    min-height: 40px;
+    max-height: 220px;
+    padding: 9px 8px;
+    border: none;
+    background: transparent;
+    line-height: 1.5;
+    color: var(--text);
+    resize: none;
+    field-sizing: content;
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+.textarea::placeholder {
+    color: #9aa7bd;
+}
+
+.textarea:disabled {
+    cursor: not-allowed;
+}
+
+/* ---------- Hint ---------- */
+
+/* Shows "generating / Esc to stop" or file errors; keeps its height to avoid layout jumps */
+.hint {
+    min-height: 1.5em;
+    margin: 8px 0 0;
+    text-align: center;
+    font-size: 0.76em;
+    color: var(--text-muted);
+}
+
+.hintError {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.hint kbd {
+    display: inline-block;
+    padding: 0 5px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text);
+}

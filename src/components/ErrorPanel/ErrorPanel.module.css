@@ -1,0 +1,294 @@
+.panel {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: #fff4e5;
+    color: #d97706;
+}
+
+.title {
+    font-size: 1.45em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.count {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: 0.95em;
+}
+
+/* ---------- Issues ---------- */
+
+.issueList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.issue {
+    padding: 22px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--warning);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+}
+
+.issueHead {
+    display: flex;
+    gap: 14px;
+}
+
+.issueNumber {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fef3c7;
+    color: #b45309;
+    font-size: 0.85em;
+    font-weight: 700;
+}
+
+.issueTitle {
+    font-size: 1.05em;
+    font-weight: 700;
+}
+
+.issueDescription {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: 0.92em;
+    line-height: 1.55;
+}
+
+.issueDetail {
+    margin: 14px 0 0 42px;
+    padding: 10px 12px;
+    background: var(--danger-soft);
+    border-radius: 8px;
+    color: var(--danger);
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    word-break: break-word;
+}
+
+.issueSteps {
+    margin: 16px 0 0 42px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.92em;
+    line-height: 1.6;
+}
+
+.issueSteps li::marker {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* ---------- chrome:// URLs ---------- */
+
+.flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.flagCode {
+    padding: 2px 8px;
+    background: var(--primary-soft);
+    border-radius: 6px;
+    color: var(--primary-hover);
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    word-break: break-all;
+}
+
+.copyButton {
+    flex-shrink: 0;
+    padding: 2px 8px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 0.75em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.copyButton:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ---------- Download ---------- */
+
+.issueAction {
+    margin: 18px 0 0 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.downloadList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.downloadLabel {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.downloadPercent {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.progress {
+    height: 6px;
+    background: var(--primary-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 999px;
+    transition: width 0.3s;
+}
+
+/* ---------- Buttons ---------- */
+
+.primaryButton,
+.secondaryButton {
+    align-self: flex-start;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-size: 0.92em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.primaryButton {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+}
+
+.primaryButton:hover {
+    background: var(--primary-hover);
+}
+
+.primaryButton:disabled {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: progress;
+}
+
+.secondaryButton {
+    background: transparent;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+}
+
+.secondaryButton:hover {
+    background: var(--primary-soft);
+}
+
+/* ---------- Requirements ---------- */
+
+.requirements {
+    padding: 20px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.requirementsSummary {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.requirementsIntro {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    line-height: 1.55;
+}
+
+.requirementsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.requirement {
+    padding: 14px 16px;
+    background: var(--page-bg);
+    border-radius: 10px;
+}
+
+.requirement dt {
+    font-size: 0.72em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+}
+
+.requirement dd {
+    margin-top: 6px;
+    font-size: 0.88em;
+    line-height: 1.55;
+}
+
+@media (max-width: 480px) {
+    .issue {
+        padding: 18px 16px;
+    }
+
+    .issueDetail,
+    .issueSteps,
+    .issueAction {
+        margin-left: 0;
+    }
+}

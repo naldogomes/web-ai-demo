@@ -1,0 +1,66 @@
+.panel {
+    padding: 18px;
+    background: var(--sidebar-surface);
+    border: 1px solid var(--sidebar-border);
+    border-radius: var(--radius);
+    min-width: 0;
+}
+
+/* Legends ignore padding on the fieldset, so float it into the flow */
+.title {
+    float: left;
+    width: 100%;
+    font-size: 0.72em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sidebar-muted);
+}
+
+.options {
+    clear: both;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 4px;
+    margin-top: 12px;
+    background: var(--sidebar-bg);
+    border-radius: 10px;
+}
+
+.option {
+    position: relative;
+}
+
+.radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.optionLabel {
+    display: block;
+    padding: 9px 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.88em;
+    font-weight: 600;
+    color: var(--sidebar-muted);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.optionLabel:hover {
+    color: #ffffff;
+}
+
+.radio:checked + .optionLabel {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.radio:focus-visible + .optionLabel {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
